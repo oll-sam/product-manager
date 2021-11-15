@@ -5,6 +5,7 @@ import "./App.css"
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ProductForm from './components/ProductForm';
 import ProductList from './components/ProductList';
+import Update from './components/Update';
 
 function App() {
   const products = [{}, {}]
@@ -19,11 +20,14 @@ function App() {
             <Route exact path="/">
               <Main />
             </Route>
-            <Route path="/product/">
+            <Route exact path="/product">
               <ProductList product= {products}/>
             </Route>
-            <Route path="/product/:id">
+            <Route exact path="/product/:id">
               <Detail />
+            </Route>
+            <Route exact path="/product/:id/edit">
+                <Update />
             </Route>
           </Switch>
         </div>
